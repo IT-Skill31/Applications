@@ -94,6 +94,37 @@
 
 
 
+/* customizable END */
+
+
+[data-tooltip]:before {
+    /* required code */
+    content: attr(data-tooltip);
+    position: absolute;
+    opacity: 0;
+
+    /* customizable */
+    top:0;
+    left:50%;
+    transform: translateX(-50%);
+    transition: 256ms all ease;
+    padding: 10px 20px;
+    color: #333;
+    border-radius: 5px;
+    box-shadow: 0px 6px 21px rgb(0 0 0 / 10%);
+}
+
+[data-tooltip]:hover:before {
+    /* required code */
+    opacity: 1;
+
+    /* customizable */
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    top: -30px;
+}
+
     </style>
     <script>
 
@@ -118,6 +149,10 @@
           <div class="hover-text">hover me
             <span class="tooltip-text" id="right">I'm a tooltip!</span>
           </div>
+
+          <div data-tooltip="Hello, I'm custom tooltip created with CSS and HTML!">
+            Hover me!
+        </div>
 
     </div>
 </body>
