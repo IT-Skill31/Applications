@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+
+
 </head>
 <body>
     <style>
@@ -125,15 +128,63 @@
     top: -30px;
 }
 
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-image: url('https://source.unsplash.com/nKC772R_qog');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.avatar::before,
+.avatar::after {
+  --scale: 0;
+  --arrow-size: 20px;
+  --tooltip-color: green;
+
+  position: absolute;
+  top: -.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+  transition: 150ms transform;
+  transform-origin: bottom center;
+}
+
+.avatar::before {
+  --translate-y: calc(-100% - var(--arrow-size));
+
+  content: attr(data-tooltip);
+  color: white;
+  padding: .5rem;
+  border-radius: .3rem;
+  text-align: center;
+  width: max-content;
+  max-width: 100%;
+  background: var(--tooltip-color);
+}
+
+.avatar:hover::before,
+.avatar:hover::after {
+  --scale: 1;
+}
+
+.avatar::after {
+  --translate-y: calc(-1 * var(--arrow-size));
+
+  content: '';
+  border: var(--arrow-size) solid transparent;
+  border-top-color: var(--tooltip-color);
+  transform-origin: top center;
+}
+
     </style>
     <script>
-
-        
+      $("[rel='popover']").popover({ trigger: "hover", container: "body" });
     </script>
 
- 
-        
-      
 
     <div class="container">
      
@@ -152,6 +203,48 @@
 
           <div data-tooltip="Hello, I'm custom tooltip created with CSS and HTML!">
             Hover me!
+        </div>
+
+  
+
+        <br />
+        <br />
+
+     
+
+    
+
+        <div class="container">
+ 
+
+       
+
+          <div id="example-select"></div>
+        <select multiple name="native-select" placeholder="Native Select" data-search="false" data-silent-initial-value-set="true">
+          <option value="1" disabled>Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3" selected>Option 3</option>
+          ...
+        </select>
+
+
+        <select id="test" name="test">
+          <option value="SelectBoxIt is:" rel="popover" title="SelectBoxIt" data-content="A jQuery Select Box Plugin for Mobile, Tablet, and Desktop">
+          SelectBoxIt is:
+          </option>
+          <option value="a jQuery Plugin" rel="popover" title="SelectBoxIt" data-content="a jQuery plugin">
+          a jQuery Plugin
+          </option>
+          <option value="a Select Box Replacement" rel="popover" title="SelectBoxIt" data-content="a SelectBox Replacement">
+          a Select Box Replacement
+          </option>
+          <option value="a Stateful UI Widget" rel="popover" title="SelectBoxIt" data-content="a Stateful UI Widget">
+          a Stateful UI Widget
+          </option>
+        </select>
+                    
+
+      
         </div>
 
     </div>

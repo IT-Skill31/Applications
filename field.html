@@ -1,200 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EXERCICE 5</title>
-    <style>
-        fieldset{
-            width: 30%;
-            border-radius: 10px;
-        }
-        .pre{
-            width: 90%;
-        }
-        .btn{
-            display: flex;
-            gap: 20px;
-        }
-    </style>
-</head>
-<body>
-    
-    <div class="container" style="display: flex; justify-content: space-evenly;">
+<html>
+    <head>
+        <title>Select Option Tooltip Test</title>
+        <script>
+            function showIETooltip(e){
+                if(!e){var e = window.event;}
+                var obj = e.srcElement;
+                var objHeight = obj.offsetHeight;
+                var optionCount = obj.options.length;
+                var eX = e.offsetX;
+                var eY = e.offsetY;
 
-        <form action="/tutorial/action.html">
-            <fieldset style="padding:30px; border:3px solid #4238ca; background:#f6f8ff;">
-              <legend>Customer Information</legend>
-            
-              <input type="text" placeholder="First name" name="firstname"><br /><br />
-              <input type="text" placeholder="Last name" name="lastname"><br /><br />
-              <input type="text" placeholder="City" name="city"><br /><br />
-              <div>
-                <input type="checkbox" id="insurance" name="hasinsurance" value="hasinsurance">
-                <label for="insurance">Has Insurance</label>
-              </div>
-              
-              <input type="submit" value="Submit" />
-            </fieldset>
-          </form>
-          <form action="/tutorial/action.html">
-            <fieldset style="padding:30px; border:3px solid #4238ca; background:#f6f8ff;">
-              <legend>Customer Information</legend>
-            
-              <input type="text" placeholder="First name" name="firstname"><br /><br />
-              <input type="text" placeholder="Last name" name="lastname"><br /><br />
-              <input type="text" placeholder="City" name="city"><br /><br />
-              <div>
-                <input type="checkbox" id="insurance" name="hasinsurance" value="hasinsurance">
-                <label for="insurance">Has Insurance</label>
-              </div>
-              
-              <input type="submit" value="Submit" />
-            </fieldset>
-          </form>
-          <form action="/tutorial/action.html">
-            <fieldset style="padding:30px; border:3px solid #4238ca; background:#f6f8ff;">
-              <legend>Customer Information</legend>
-            
-              <input type="text" placeholder="First name" name="firstname"><br /><br />
-              <input type="text" placeholder="Last name" name="lastname"><br /><br />
-              <input type="text" placeholder="City" name="city"><br /><br />
-              <div>
-                <input type="checkbox" id="insurance" name="hasinsurance" value="hasinsurance">
-                <label for="insurance">Has Insurance</label>
-              </div>
-              
-              <input type="submit" value="Submit" />
-            </fieldset>
-          </form>
-    </div>
-    <div class="container" style="display: flex; justify-content: space-evenly;">
-        
-           
-                <fieldset>
-                    <legend><b>Vos coordonnées</b></legend>
-                    <table width="100%">
-                        <tr>
-                            <td width="35%">
-                                <label for="nom">Nom :</label>
-                            </td>
-                            <td  width="65%">
-                                <input type="text" name="nom" id="nom" placeholder="votre nom">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="pre">Prénom :</label>
-                            </td>
-                            <td>
-                                <input class="pre" type="text" name="pre" id="pre" placeholder="votre prénom" width="60%">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="dn">Date de naissance :</label>
-                            </td>
-                            <td>
-                                <input type="date" name="dn" id="dn">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="email">Mail :</label>
-                            </td>
-                            <td>
-                                <input class="pre" type="email" name="email" id="email">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="site">Votre site :</label>
-                            </td>
-                            <td>
-                                <input type="url" name="site" id="site">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="code">Code</label>
-                            </td>
-                            <td>
-                                <input class="pre" type="text" name="code" id="code">
-                            </td>
-                        </tr>
-                        <tr>
-                        <td>
-                            <label for="genre">Genre :</label>
-                        </td>
-                                
-                            <td>
-                                <input type="radio" name="genre" id="genre">Homme
-                                <br>
-                                <input type="radio" name="genre" id="genre">Femme
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="pays">Pays :</label>
-                            </td>
-                            <td>
-                            <select name="pays" id="pays" >
-                                <optgroup label="Votre pays" default>
-                                    <option value="">Maroc</option>
-                                    <option value="">France</option>
-                                    <option value="">Tunisie</option>
-                                    <option value="">Senegal</option>
-                                </optgroup>
-            
-                            </select>
-                            </td>
-                        </tr>
-                    </table>
-                </fieldset>
-            
-                <fieldset>
-                    <legend><b>Vos gouts</b></legend>
-                    <table>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="check1" id="check1">
-                            </td>
-                            <td>
-                                <label for="check1">Tarte aux fraises à la crème d'amandes</label>
-                            </td>
-                            </tr> 
-                            <tr>
-                                <td>
-                                    <input type="checkbox" name="check2" id="check2">
-                                </td>
-                                <td>
-                                    <label for="check2">Tarte aux prunes</label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="checkbox" name="check3" id="check3">
-                                </td>
-                                <td>
-                                    <label for="check3">Tarte rustique aux miserablelles de Lorraine, noisettes et miel</label>
-                                </td>
-                            </tr>  
-                    </table>
-                
-                        <textarea name="" id="" cols="52" rows="6" placeholder="Décrivez vos gouts en détail"></textarea>
-                    
-                </fieldset>
-          
-                <fieldset>
-                    <legend>Envoyer nous votre photo</legend>
-                    <input type="file" name="pic" id="pic">
-                    <br> <br>
-                    <div class="btn">
-                    <input type="reset" value="Effacer">
-                    <input type="submit" value="Envoyer">
-                </div>
-                </fieldset>
-          
-    </div>
-</body>
+                //vertical position within select will roughly give the moused over option...
+                var hoverOptionIndex = Math.floor(eY / (objHeight / optionCount));
+
+                var tooltip = document.getElementById('dvDiv');
+                tooltip.innerHTML = obj.options[hoverOptionIndex].title;
+
+                mouseX=e.pageX?e.pageX:e.clientX;
+                mouseY=e.pageY?e.pageY:e.clientY;
+
+                tooltip.style.left=mouseX+10;
+                tooltip.style.top=mouseY;
+
+                tooltip.style.display = 'block';
+
+                var frm = document.getElementById("frm");
+                frm.style.left = tooltip.style.left;
+                frm.style.top = tooltip.style.top;
+                frm.style.height = tooltip.offsetHeight;
+                frm.style.width = tooltip.offsetWidth;
+                frm.style.display = "block";
+            }
+            function hideIETooltip(e){
+                var tooltip = document.getElementById('dvDiv');
+                var iFrm = document.getElementById('frm');
+                tooltip.innerHTML = '';
+                tooltip.style.display = 'none';
+                iFrm.style.display = 'none';
+            }
+        </script>
+    </head>
+    <body>
+        <select onmousemove="showIETooltip();" onmouseout="hideIETooltip();" size="10">
+            <option title="Option #1" value="1">Option #1</option>
+            <option title="Option #2" value="2">Option #2</option>
+            <option title="Option #3" value="3">Option #3</option>
+            <option title="Option #4" value="4">Option #4</option>
+            <option title="Option #5" value="5">Option #5</option>
+            <option title="Option #6" value="6">Option #6</option>
+            <option title="Option #7" value="7">Option #7</option>
+            <option title="Option #8" value="8">Option #8</option>
+            <option title="Option #9" value="9">Option #9</option>
+            <option title="Option #10" value="10">Option #10</option>
+        </select>
+        <div id="dvDiv" style="display:none;position:absolute;padding:1px;border:1px solid #333333;;background-color:#fffedf;font-size:smaller;z-index:999;"></div>
+        <iframe id="frm" style="display:none;position:absolute;z-index:998"></iframe>
+    </body>
 </html>
