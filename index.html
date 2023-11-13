@@ -3,234 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
+   
 
 
 </head>
 <body>
     <style>
-        
 
-
-/* Tooltip container
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text 
-}
-*/
-
-
-.tooltip-text {
-  visibility: hidden;
-  position: absolute;
-  z-index: 2;
-  width: 100px;
-  color: white;
-  font-size: 12px;
-  background-color: #192733;
-  border-radius: 10px;
-  padding: 10px 15px 10px 15px;
-}
-
-.tooltip-text::before {
-  content: "";
-  position: absolute;
-  transform: rotate(45deg);
-  background-color: #192733;
-  padding: 5px;
-  z-index: 1;
-}
-
-.hover-text:hover .tooltip-text {
-  visibility: visible;
-}
-
-#top {
-  top: -40px;
-  left: -50%;
-}
-
-#top::before {
-  top: 80%;
-  left: 45%;
-}
-
-#bottom {
-  top: 25px;
-  left: -50%;
-}
-
-#bottom::before {
-  top: -5%;
-  left: 45%;
-}
-
-#left {
-  top: -8px;
-  right: 120%;
-}
-
-#left::before {
-  top: 35%;
-  left: 94%;
-}
-
-#right {
-  top: -8px;
-  left: 120%;
-}
-
-#right::before {
-  top: 35%;
-  left: -2%;
-}
-
-.hover-text {
-  position: relative;
-  display: inline-block;
-  margin: 40px;
-  font-family: Arial;
-  text-align: center;
-}
-
-
-
-/* customizable END */
-
-
-[data-tooltip]:before {
-    /* required code */
-    content: attr(data-tooltip);
-    position: absolute;
-    opacity: 0;
-
-    /* customizable */
-    top:0;
-    left:50%;
-    transform: translateX(-50%);
-    transition: 256ms all ease;
-    padding: 10px 20px;
-    color: #333;
-    border-radius: 5px;
-    box-shadow: 0px 6px 21px rgb(0 0 0 / 10%);
-}
-
-[data-tooltip]:hover:before {
-    /* required code */
-    opacity: 1;
-
-    /* customizable */
-    background: #fff;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    top: -30px;
-}
-
-
-.avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-image: url('https://source.unsplash.com/nKC772R_qog');
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-.avatar::before,
-.avatar::after {
-  --scale: 0;
-  --arrow-size: 20px;
-  --tooltip-color: green;
-
-  position: absolute;
-  top: -.25rem;
-  left: 50%;
-  transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
-  transition: 150ms transform;
-  transform-origin: bottom center;
-}
-
-.avatar::before {
-  --translate-y: calc(-100% - var(--arrow-size));
-
-  content: attr(data-tooltip);
-  color: white;
-  padding: .5rem;
-  border-radius: .3rem;
-  text-align: center;
-  width: max-content;
-  max-width: 100%;
-  background: var(--tooltip-color);
-}
-
-.avatar:hover::before,
-.avatar:hover::after {
-  --scale: 1;
-}
-
-.avatar::after {
-  --translate-y: calc(-1 * var(--arrow-size));
-
-  content: '';
-  border: var(--arrow-size) solid transparent;
-  border-top-color: var(--tooltip-color);
-  transform-origin: top center;
-}
-
+#tooltip {
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+    
     </style>
-    <script>
-      $("[rel='popover']").popover({ trigger: "hover", container: "body" });
-    </script>
+   
 
+
+
+<script>
+ 
+ $(document).ready(function() {
+  // change dropdown button text when a dropdown option is clicked
+  $('.dropdown-item').click(function() {
+    $('.dropdown-toggle').text($(this).text());
+  });
+
+  // show html tooltip
+  $('[data-toggle="tooltip"]').tooltip({
+    html: true,
+    placement: "top"
+  });
+});
+</script>
 
     <div class="container">
-     
-        <div class="hover-text">hover me
-            <span class="tooltip-text" id="top">I'm a tooltip TOP!</span>
-          </div>
-          <div class="hover-text">hover me
-            <span class="tooltip-text" id="bottom">I'm a tooltip boutom!</span>
-          </div>
-          <div class="hover-text">hover me
-            <span class="tooltip-text" id="left">I'm a tooltip!</span>
-          </div>
-          <div class="hover-text">hover me
-            <span class="tooltip-text" id="right">I'm a tooltip!</span>
-          </div>
-
-          <div data-tooltip="Hello, I'm custom tooltip created with CSS and HTML!">
-            Hover me!
-        </div>
-
-  
-
         <br />
         <br />
-
-     
-
-    
 
         <div class="container">
- 
-
-       
-
-          <div id="example-select"></div>
-        <select multiple name="native-select" placeholder="Native Select" data-search="false" data-silent-initial-value-set="true">
-          <option value="1" disabled>Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3" selected>Option 3</option>
-          ...
-        </select>
-
-
-        <select id="test" name="test">
-          <option value="SelectBoxIt is:" rel="popover" title="SelectBoxIt" data-content="A jQuery Select Box Plugin for Mobile, Tablet, and Desktop">
+        <select id="colorNav" name="test">
+          <option value="SelectBoxIt is:" class="dropdown-item" href="#" data-toggle="tooltip" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>" >
           SelectBoxIt is:
+        
           </option>
           <option value="a jQuery Plugin" rel="popover" title="SelectBoxIt" data-content="a jQuery plugin">
           a jQuery Plugin
@@ -242,10 +65,25 @@
           a Stateful UI Widget
           </option>
         </select>
-                    
+      </div>
 
-      
+        <br>
+        <br>
+        <br>
+
+        <div class="container">
+          <div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">First Option</button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#" data-toggle="tooltip" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">First Option</a>
+              <a class="dropdown-item" href="#" data-toggle="tooltip" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">Second Option</a>
+              <a class="dropdown-item" href="#" data-toggle="tooltip" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">Third Option</a>
+            </div>
+          </div>
         </div>
+        
+
+  
 
     </div>
 </body>
