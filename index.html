@@ -16,12 +16,30 @@
 <body>
     <style>
 
-#tooltip {
-    background-color: #333;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 13px;
+.tooltip44 {
+    --r: 30px; /* control the radius */
+    --h: 50px; /* control the height of the tail */
+    --p: 30%;  /* control the position of the tail */
+  
+    padding: var(--r);
+    border-bottom: var(--h) solid #0000;
+    --m:
+      /* adjust the angles of the 1st conic-gradient to control the shape */
+      conic-gradient(from 30deg at var(--p) 100%,#0000,#000 1deg 30deg,#0000 31deg)
+       0 100%/100% calc(100% - var(--r)) no-repeat,
+      conic-gradient(at calc(var(--r)/2) calc(var(--r)/2),#000 270deg,#0000 0)
+       0 0/calc(100% - var(--r)/2) calc(100% - var(--r)/2) padding-box,
+      radial-gradient(50% 50%,#000 98%,#0000) 
+       0 0/var(--r) var(--r) space padding-box;
+    -webkit-mask: var(--m);
+            mask: var(--m);
+    
+      
+    margin: 50px auto;
+    max-width: 350px;
+    font-size: 20px;
+    background: linear-gradient(135deg,#FE6D00,#1384C5) border-box;
+    color: #fff;
   }
     
     </style>
@@ -81,6 +99,9 @@
             </div>
           </div>
         </div>
+
+
+        <p class="tooltip44">Chocolate shortbread gummi bears cupcake chupa chups. Jelly-o halvah gummi bears bonbon cookie cheesecake sweet roll bonbon danish. Chocolate bar gummies jelly-o sweet liquorice jelly-o danish soufflé. Marzipan caramels dragée lemon drops oat cake donut. Powder tiramisu</p>
         
 
   
