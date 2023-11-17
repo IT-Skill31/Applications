@@ -6,11 +6,13 @@
 
 * https://www.quackit.com/coldfusion/tutorial/coldfusion_if_statements.cfm
 
+````
 <cfset firstName = "Ozzy">
 <cfif firstName neq "Bono">
   Crazy Train!
 </cfif>
 
+````
 
 
 * ToolTips :
